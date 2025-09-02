@@ -1,0 +1,61 @@
+return {
+	"neovim/nvim-lspconfig",
+	lazy = false,
+	dependencies = {
+		"creativenull/efmls-configs-nvim",
+	},
+	keys = {
+		{ "<leader>Ds", vim.lsp.buf.hover, mode = "n", desc = "Show documentation" },
+		{ "<leader>ds", vim.lsp.buf.definition, mode = "n", desc = "Show definition" },
+		{ "<leader>ca", vim.lsp.buf.code_action, mode = "n", desc = "List code actions" },
+		{ "<leader>dg", vim.lsp.buf.declaration, mode = "n", desc = "Go to declaration" },
+		{ "<leader>rn", vim.lsp.buf.rename, mode = "n", desc = "Rename" },
+	},
+	config = function()
+		local lspconfig = require("lspconfig")
+		local capabilities = require("cmp_nvim_lsp").default_capabilities()
+		local root_patterns = require("lspconfig.util").root_pattern(".git", ".gitignore")
+
+		lspconfig.efm.setup({
+			capabilities = capabilities,
+			filetypes = { "solidity" },
+			root_dir = root_patterns,
+			init_options = { documentFormatting = true },
+			settings = {
+				languages = {
+					solidity = {
+						require("efmls-configs.formatters.prettier"),
+					},
+				},
+			},
+		})
+
+		lspconfig.solidity_ls.setup({
+			capabilities = capabilities,
+			filetypes = { "solidity" },
+			root_dir = root_patterns,
+		})
+
+		lspconfig.lua_ls.setup({
+			capabilities = capabilities,
+			settings = {
+				diagnostics = { globals = { "vim" } },
+			},
+		})
+
+		lspconfig.tinymist.setup({
+			capabilities = capabilities,
+			settings = { formatterMode = "typstfmt" },
+		})
+
+		lspconfig.yamlls.setup({ capabilities = capabilities, settings = { yaml = { validate = false } } })
+		lspconfig.marksman.setup({ capabilities = capabilities })
+		lspconfig.jsonls.setup({ capabilities = capabilities })
+		lspconfig.texlab.setup({ capabilities = capabilities })
+		lspconfig.html.setup({ capabilities = capabilities })
+		lspconfig.ocamllsp.setup({ capabilities = capabilities })
+		lspconfig.clangd.setup({ capabilities = capabilities })
+		lspconfig.ts_ls.setup({ capabilities = capabilities })
+		lspconfig.pyright.setup({ capabilities = capabilities })
+	end,
+}

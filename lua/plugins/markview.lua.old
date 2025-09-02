@@ -1,0 +1,43 @@
+return {
+	"OXY2DEV/markview.nvim",
+	lazy = false,
+	dependencies = { "nvim-tree/nvim-web-devicons" },
+	keys = {
+		{
+			"<leader>ms",
+			function()
+				require("markview").splitToggle()
+			end,
+			mode = "n",
+			desc = "Toggle markdown rendering split view",
+		},
+		{
+			"<leader>mv",
+			function()
+				require("markview").toggle()
+			end,
+			mode = "n",
+			desc = "Toggle markdown rendering",
+		},
+	},
+	config = function()
+		require("markview").setup({
+			experimental = {
+				check_rtp = true,
+				check_rtp_message = false,
+			},
+			preview = {
+				filetypes = { "markdown" },
+			},
+			markdown = {
+				code_blocks = {
+					enable = true,
+					style = "language",
+				},
+			},
+			typst = {
+				enable = nil,
+			},
+		})
+	end,
+}
