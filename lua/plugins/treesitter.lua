@@ -22,6 +22,7 @@ return {
 				"javascript",
 				"typescript",
 				"solidity",
+				"java",
 			},
 			highlight = { enable = true },
 			indent = { enable = true },

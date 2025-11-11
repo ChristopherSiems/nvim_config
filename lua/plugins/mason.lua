@@ -22,6 +22,7 @@ return {
 				"solidity_ls",
 				"efm",
 				"pyright",
+				"jdtls",
 			},
 			automatic_installation = true,
 		})

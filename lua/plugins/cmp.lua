@@ -25,7 +25,6 @@ return {
 				mapping = cmp.mapping.preset.insert({
 					["<C-a>"] = cmp.mapping.abort(),
 					["<Tab>"] = cmp.mapping.confirm({ select = true }),
-					["<CR>"] = cmp.mapping.confirm({ select = true }),
 				}),
 				sources = cmp.config.sources({
 					{ name = "nvim_lsp" },

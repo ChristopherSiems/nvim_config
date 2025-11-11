@@ -34,6 +34,8 @@ return {
 				tex = { "tex-fmt" },
 				javascript = { "prettier" },
 				typescript = { "prettier" },
+				javascriptreact = { "prettier" },
+				typescriptreact = { "prettier" },
 				lua = { "stylua" },
 				solidity = { "prettier" },
 				python = { "black", "isort", "autopep8" },
