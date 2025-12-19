@@ -30,7 +30,6 @@ return {
 			formatters_by_ft = {
 				markdown = { "prettier" },
 				yaml = { "prettier" },
-				ocaml = { "ocamlformat" },
 				tex = { "tex-fmt" },
 				javascript = { "prettier" },
 				typescript = { "prettier" },
@@ -39,6 +38,7 @@ return {
 				lua = { "stylua" },
 				solidity = { "prettier" },
 				python = { "black", "isort", "autopep8" },
+				typst = { "typstyle" },
 			},
 		})
 

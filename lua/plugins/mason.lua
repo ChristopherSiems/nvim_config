@@ -31,12 +31,12 @@ return {
 			auto_update = true,
 			ensure_installed = {
 				"prettier",
-				"ocamlformat",
 				"tex-fmt",
 				"stylua",
 				"black",
 				"isort",
 				"autopep8",
+				"typstyle",
 			},
 		})
 	end,

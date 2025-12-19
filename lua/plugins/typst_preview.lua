@@ -5,7 +5,7 @@ return {
 		{
 			"<leader>tp",
 			function()
-				require("typst-preview").toggle()
+				vim.cmd("TypstPreviewToggle")
 			end,
 			mode = "n",
 			desc = "Preview Typst document",

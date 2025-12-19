@@ -53,9 +53,6 @@ return {
 
 		vim.lsp.config("tinymist", {
 			capabilities = capabilities,
-			settings = {
-				formatterMode = "typstfmt",
-			},
 		})
 		vim.lsp.enable("tinymist")
 
